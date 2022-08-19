@@ -1,12 +1,23 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
+    path: path.join(__dirname, "dist"),
+    filename: "[name].[hash].js"
   },
+  devServer: {
+	port: 3333
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+	  filename: 'index.html'
+    }),
+	new CleanWebpackPlugin()
+  ],
   module: {
     rules: [
       {
@@ -23,28 +34,26 @@ module.exports = {
           loader: "babel-loader" //используем загрузчик
         },
       },
-    //   {
-    //     test: /\.css$/,
-    //     use: ["style-loader", "css-loader"]
-    //   },
-	  	  {
-        test: /\.scss$/,
-		use: ['css-loader', 'sass-loader']
-        // use: ExtractTextPlugin.extract(
-        //   {
-        //     fallback: 'style-loader',
-        //     use: ['css-loader', 'sass-loader']
-        //   })
-      }
+      {
+        test: /\.(css|less|scss)$/,
+        use: ["style-loader", "css-loader", 'sass-loader']
+      },
+	  {
+		test: /\.(jpg|jpeg|png|svg)/,
+		use: ["file-loader"]
+	  },
+	//   	{
+    //     test: /\.scss$/,
+	// 	// use: ['css-loader', 'sass-loader']
+    //     use: ExtractTextPlugin.extract(
+    //       {
+    //         fallback: 'style-loader',
+    //         use: ['css-loader', 'sass-loader']
+    //       })
+    //   }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-		
-      template: "./src/index.html",
-	  filename: 'index.html'
-    })
-  ]
+
 };
 
 
