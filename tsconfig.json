@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
+		"outDir": "./dist/",
+        "noImplicitAny": true,
         "target": "es5",
         "jsx": "react",
+		"allowJs": true,
+		"sourceMap": true,
         "noEmitOnError": true,
         "noUnusedLocals": true,
         "removeComments": true,
-        "noImplicitAny": true,
         "esModuleInterop": true,
         "baseUrl": "./",
 		"paths": { // Указываем ссылки до директорий в проекте, чтобы каждый раз в импортах не писать относительные пути
