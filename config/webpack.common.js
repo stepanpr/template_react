@@ -9,7 +9,7 @@ module.exports = {
 	}, 
 	output: {
 		path: path.join(__dirname, "../dist"), // точка выхода приложения, директория
-		filename: "[name].[hash].js"
+		filename: "[name].[contenthash].js"
 	},
 
 	// devServer: {
