@@ -1,0 +1,40 @@
+/*********************************************************/
+/***************************X*****************************/
+/*********************************************************/
+
+.content {
+	/* border: 1px solid rgb(0, 0, 0); */
+	/* background-color: #31C2A7; */
+	background-color: #F7FBFC;
+	/* width: 100%; */
+	/* height: calc(100vh - 200px - 100px);  вариант прижатого к низу футера с вычетанием высоты футера и хедера */
+	flex-grow: 1;
+	/* height: calc(100% - 100px); */
+	/* min-height: 200px; */
+	/* height: 100%; */
+	color: rgb(48, 61, 63);
+	font-size: 1.1em;
+	line-height: 1.3em;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	/* overflow: visible; */
+}
+
+/* .content-no-scroll {
+	overflow: hidden;
+} */
+
+
+
+.content h3 {
+	/* text-decoration: underline; */
+	color: var(--b-intense);
+	margin-bottom: 20px;
+	background:  linear-gradient(90deg, #B9D7EA, #F7FBFC);
+	display: block;
+	padding-left: 10px;
+	/* border-radius: 5px; */
+
+}
+
+
+

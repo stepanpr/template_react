@@ -1,0 +1,13 @@
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	/* margin: 0 auto; */
+	height: 100%;
+	font-size: 23px;
+	/* border: 1px solid rgb(192, 166, 166); */
+}
+
+.notFoundWrapper {
+	height: 100%;
+}

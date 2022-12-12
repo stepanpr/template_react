@@ -7,7 +7,7 @@
 		"allowJs": true,
 		"sourceMap": true,
         "noEmitOnError": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false, //поменять на true
         "removeComments": true,
         "esModuleInterop": true,
         "baseUrl": "./",
