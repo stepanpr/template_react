@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 
 import './styles.css';
-import Logo from './Logo';
-import { ILink } from '../../interfaces/ILink';
+// import Logo from './Logo';
 import { ROUTES } from '../../app/app';
 // import logo from './logo.svg';
 // import { ReactComponent as YourSvg } from './logo.svg';
 
-// export interface ILink {
-// 	value: string;
-// 	href: string;
-// }
+export interface ILink {
+    value: string;
+    href: string;
+}
 
 interface HeaderProps {
     menuActive: boolean;
@@ -21,7 +20,7 @@ interface HeaderProps {
     scrolled: number;
     setScrolled: any;
     // setScrollZero: any;
-    //   handleClickMenu: any
+    handleClickMenu: any;
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = ({
@@ -30,6 +29,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
     mediaQueries,
     scrolled,
     setScrolled,
+    handleClickMenu,
 }: HeaderProps) => {
     // useEffect(() => {
     // 	const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
@@ -39,20 +39,21 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
 
     //   const [menuActive, setMenuActive] = useState(false);
 
-    const handleClickMenu = () => {
-        if (mediaQueries.isTabletOrMobile || mediaQueries.isMobile) {
-            !menuActive
-                ? (document.body.style.overflow = 'hidden')
-                : (document.body.style.overflow = '');
-            setMenuActive(!menuActive);
-        }
-        // setScrollZero(false); /* переклюяаем состояние использоавания скролла на false  */
-        // console.log(props.scrolled, 'zzz')
-        // setScrolled(0);
-        // console.log(props.scrolled, 'xxx')
-        console.log(menuActive, 'zzz');
-    };
+    // const handleClickMenu = () => {
+    //     if (mediaQueries.isTabletOrMobile || mediaQueries.isMobile) {
+    //         !menuActive
+    //             ? (document.body.style.overflow = 'hidden')
+    //             : (document.body.style.overflow = '');
+    //         setMenuActive(!menuActive);
+    //     }
+    //     // setScrollZero(false); /* переклюяаем состояние использоавания скролла на false  */
+    //     // console.log(props.scrolled, 'zzz')
+    //     setScrolled(0);
+    //     // console.log(props.scrolled, 'xxx')
+    //     console.log(menuActive, 'zzz');
+    // };
 
+    /** Приведение меню в неактивное состояние клавишей ESC. */
     useEffect(() => {
         const handleEscPress = (event: any) => {
             if (event.keyCode === 27 && menuActive) handleClickMenu();
@@ -63,6 +64,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
         };
     });
 
+    /** Массив ссылок меню. */
     const menuItems: ILink[] = [
         { value: 'о нас', href: '#about' },
         { value: 'галерея', href: '#gallery' },
@@ -135,7 +137,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
                 <span className={bbtnSpanClassNames} />
             </div> */}
 
-			{/** Показываем то или меню в соответствии с текщем роутом. */}
+            {/** Показываем то или иное меню в соответствии с текщем роутом. */}
             {window.location.pathname === ROUTES.MAIN && (
                 <>
                     <div className={bbtnClassNames} onClick={handleClickMenu}>

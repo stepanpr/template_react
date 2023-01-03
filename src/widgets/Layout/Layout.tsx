@@ -1,11 +1,8 @@
 import React, { useState, useReducer, useEffect } from 'react';
 // import { useMediaQuery } from "react-responsive"
-
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 // import { Content } from "../components/Content/Content"
-
-import { ILink } from '../../interfaces/ILink';
 import classnames from 'classnames';
 
 /* Viewport hook (можно использовать вместо 'react-responsive') */
@@ -27,13 +24,6 @@ interface ILayoutProps {
 }
 
 const Layout = ({ children, mediaQueries }: ILayoutProps) => {
-    /** Массив ссылок меню. */
-    // const menuItems: ILink[] = [
-    //     { value: 'о нас', href: '#about' },
-    //     { value: 'галерея', href: '#gallery' },
-    //     { value: 'отзывы', href: '#reviews' },
-    //     { value: 'контакты', href: '#contact' },
-    // ];
     const [menuActive, setMenuActive] = useState(false);
 
     /** Состояние прокрутки. */
@@ -46,17 +36,6 @@ const Layout = ({ children, mediaQueries }: ILayoutProps) => {
 
     // const { width } = useViewport();
     // console.log(width);
-
-    /** Приведение меню в неактивное состояние клавишей ESC. */
-    // useEffect(() => {
-    //     const handleEscPress = (event: any) => {
-    //         if (event.keyCode === 27 && menuActive) handleClickMenu();
-    //     };
-    //     window.addEventListener('keydown', handleEscPress);
-    //     return () => {
-    //         window.removeEventListener('keydown', handleEscPress);
-    //     };
-    // });
 
     /** Отслеживание прокрутки страницы. */
     useEffect(() => {
@@ -74,35 +53,25 @@ const Layout = ({ children, mediaQueries }: ILayoutProps) => {
         };
     });
 
-    //   const mediaQueries = {
-    //     isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }),
-    //     isTabletOrMobile: useMediaQuery({ maxWidth: 1224 }),
-    //     isMobile: useMediaQuery({ maxWidth: 720 }),
-    //     isBigScreen: useMediaQuery({ minWidth: 1824 }),
-    //     isPortrait: useMediaQuery({ orientation: "portrait" }),
-    //     isRetina: useMediaQuery({ minResolution: "2dppx" }),
-    //   }
-
-    // console.log(mediaQueries.isDesktopOrLaptop, ' : ', mediaQueries.isTabletOrMobile);
-
-    // const handleClickMenu = () => {
-    //     if (mediaQueries.isTabletOrMobile || mediaQueries.isMobile) {
-    //         !menuActive
-    //             ? (document.body.style.overflow = 'hidden')
-    //             : (document.body.style.overflow = '');
-    //         setMenuActive(!menuActive);
-    //     }
-    //     // setScrollZero(false); /* переклюяаем состояние использоавания скролла на false  */
-    //     // console.log(props.scrolled, 'zzz')
-    //     // setScrolled(0);
-    //     // console.log(props.scrolled, 'xxx')
-    //     console.log(menuActive, 'zzz');
-    // };
+	/** TODO: при overflow = 'hidden', контент съезжает. */
+	const handleClickMenu = () => {
+        if (mediaQueries.isTabletOrMobile || mediaQueries.isMobile) {
+            !menuActive
+                ? (document.body.style.overflow = 'hidden')
+                : (document.body.style.overflow = '');
+            setMenuActive(!menuActive);
+        }
+        // setScrollZero(false); /* переклюяаем состояние использоавания скролла на false  */
+        // console.log(props.scrolled, 'zzz')
+        setScrolled(0);
+        // console.log(props.scrolled, 'xxx')
+        console.log(menuActive, 'zzz');
+    };
 
     return (
         <div
             className={'main'}
-            // onClick={() => (menuActive ? handleClickMenu() : 0)}
+            onClick={() => (menuActive ? handleClickMenu() : 0)}
         >
             {/** Размытие фона при открытом меню. */}
             <div
@@ -110,15 +79,13 @@ const Layout = ({ children, mediaQueries }: ILayoutProps) => {
                     menuActive && !mediaQueries.isDesktopOrLaptop ? 'blur' : ''
                 }
             />
-            {/* <div className={'headerAndContent'}> */}
             <Header
                 menuActive={menuActive}
                 setMenuActive={setMenuActive}
                 mediaQueries={mediaQueries}
-                // menuItems={menuItems}
                 scrolled={scrolled}
                 setScrolled={setScrolled}
-                // handleClickMenu={handleClickMenu}
+				handleClickMenu={handleClickMenu}
             />
             {/** Контент */}
             {children}

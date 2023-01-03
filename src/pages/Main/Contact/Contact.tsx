@@ -2,7 +2,14 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import classnames from 'classnames';
 import './contact.css';
-import { IFormValues } from '../../../interfaces/IFormValues';
+
+export interface IFormValues {
+	name: string
+	phone: string
+	email: string
+	msg: string
+}
+
 
 interface ContactProps {
     mediaQueries: any;

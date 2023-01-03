@@ -1,20 +1,14 @@
 import React, { Suspense, lazy, ComponentType } from 'react';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
-
-// import AppRoutes from "./AppRoutes"
 import Layout from '../widgets/Layout/Layout';
 import { Routes, Route, redirect } from 'react-router-dom';
 import Spinner from '../shared/ui/Spinner/Spinner';
 
-// import { Content } from '../pages/Main';
 import { useMediaQueries } from '../shared/lib/useMediaQueries';
-
-// import "./style.scss"
-// import "./st.less"
-// import "./s.css"
 
 export const ROUTES = {
     MAIN: '/',
+    ALL: '*',
 };
 
 const App = () => {
@@ -50,15 +44,8 @@ const App = () => {
                             path={ROUTES.MAIN}
                             element={<Main mediaQueries={mediaQueries} />}
                         />
-                        <Route path="*" element={<NotFound />} />
-
-                        {/* <Route exact path="/" component={TasksListPage} />
-                        <Route
-                            exact
-                            path="/:taskId"
-                            component={TaskDetailsPage}
-                        />
-                        <Redirect to="/" /> */}
+                        <Route path={ROUTES.ALL} element={<NotFound />} />
+                        {/* <Redirect to="/" /> */}
                     </Routes>
                     {/* <AppRoutes /> */}
                 </Suspense>
