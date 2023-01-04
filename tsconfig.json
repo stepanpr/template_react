@@ -10,15 +10,12 @@
         "noUnusedLocals": false, //поменять на true
         "removeComments": true,
         "esModuleInterop": true,
-        "baseUrl": "./app",
-		"paths": { // Указываем ссылки до директорий в проекте, чтобы каждый раз в импортах не писать относительные пути
-		"App": ["src/App"],
-		"Pages/*": ["src/Pages/*"],
-	}
-        // "paths": { // Указываем ссылки до директорий в проекте, чтобы каждый раз в импортах не писать относительные пути
-        //     "App": ["src/App"],
-        //     "Pages/*": ["src/Pages/*"],
-        // }
+        "baseUrl": "./src",
+		// "paths": { // Указываем ссылки до директорий в проекте, чтобы каждый раз в импортах не писать относительные пути
+		// // "app": ["src/app"],
+		// // "pages/*": ["src/pages/*"],
+		// // "widgets/*": ["src/widgets/*"],
+		// }
     },
     "exclude": [
         "node_modules"

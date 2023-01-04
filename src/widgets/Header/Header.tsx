@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import './styles.css';
 // import Logo from './Logo';
-import { ROUTES } from '../../app/app';
+import { ROUTES } from 'app/app';
 // import logo from './logo.svg';
 // import { ReactComponent as YourSvg } from './logo.svg';
 

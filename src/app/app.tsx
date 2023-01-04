@@ -1,8 +1,8 @@
 import React, { Suspense, lazy, ComponentType } from 'react';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
-import Layout from '../widgets/Layout/Layout';
+import Layout from 'widgets/Layout/Layout';
 import { Routes, Route, redirect, BrowserRouter } from 'react-router-dom';
-import Spinner from '../shared/ui/Spinner/Spinner';
+import Spinner from 'shared/ui/Spinner/Spinner';
 
 import { useMediaQueries } from '../shared/lib/useMediaQueries';
 
