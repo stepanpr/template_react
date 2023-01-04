@@ -8,7 +8,7 @@ const {PROJECT_NAME} = require('./consts')
 /** Базовый конфиг. */
 webpackBaseConfig = {
 	    entry: {
-        main: path.resolve('../src/index.tsx'), // точка входа приложения
+        main: path.resolve('../src/app/index.tsx'), // точка входа приложения
     },
     output: {
         path: path.join(__dirname, '../dist/'), // точка выхода приложения, директория

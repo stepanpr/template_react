@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, ComponentType } from 'react';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 import Layout from '../widgets/Layout/Layout';
-import { Routes, Route, redirect } from 'react-router-dom';
+import { Routes, Route, redirect, BrowserRouter } from 'react-router-dom';
 import Spinner from '../shared/ui/Spinner/Spinner';
 
 import { useMediaQueries } from '../shared/lib/useMediaQueries';
@@ -36,7 +36,7 @@ const App = () => {
     // });
 
     return (
-        <>
+        <BrowserRouter>
             <Layout mediaQueries={mediaQueries}>
                 <Suspense fallback={<Spinner />}>
                     <Routes>
@@ -50,7 +50,7 @@ const App = () => {
                     {/* <AppRoutes /> */}
                 </Suspense>
             </Layout>
-        </>
+        </BrowserRouter>
     );
 };
 

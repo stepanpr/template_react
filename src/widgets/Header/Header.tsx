@@ -32,26 +32,10 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
     handleClickMenu,
 }: HeaderProps) => {
     // useEffect(() => {
-    // 	const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
+    // 	const handleClick = () => menuActive ? setMenuActive(!menuActive) : 0;
     // 	window.addEventListener("click", handleClick);
     // 	return () => window.removeEventListener("click", handleClick);
     // });
-
-    //   const [menuActive, setMenuActive] = useState(false);
-
-    // const handleClickMenu = () => {
-    //     if (mediaQueries.isTabletOrMobile || mediaQueries.isMobile) {
-    //         !menuActive
-    //             ? (document.body.style.overflow = 'hidden')
-    //             : (document.body.style.overflow = '');
-    //         setMenuActive(!menuActive);
-    //     }
-    //     // setScrollZero(false); /* переклюяаем состояние использоавания скролла на false  */
-    //     // console.log(props.scrolled, 'zzz')
-    //     setScrolled(0);
-    //     // console.log(props.scrolled, 'xxx')
-    //     console.log(menuActive, 'zzz');
-    // };
 
     /** Приведение меню в неактивное состояние клавишей ESC. */
     useEffect(() => {

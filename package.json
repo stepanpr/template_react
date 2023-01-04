@@ -4,8 +4,8 @@
   "description": "template_react",
   "main": "index.tsx",
   "scripts": {
-    "dev": "webpack serve --config ./config/webpack.dev.js --mode development ./src/index.tsx",
-    "build": "webpack --node-env=production --config ./config/webpack.prod.js --mode production ./src/index.tsx",
+    "dev": "webpack serve --config ./config/webpack.dev.js --mode development ./src/app/index.tsx",
+    "build": "webpack --node-env=production --config ./config/webpack.prod.js --mode production ./src/app/index.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rd /s /q dist"
   },
