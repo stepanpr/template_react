@@ -1,7 +1,7 @@
 # template_react
 template_react
 
-
+```
 ├── config
 │   ├── consts.js
 │   ├── utils.js
@@ -59,3 +59,4 @@ template_react
 │       └── Layout
 │           └── Layout.tsx
 └── tsconfig.json
+```
