@@ -1,0 +1,17 @@
+name: myset
+
+#on: [push]
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs: 
+  mysendcode:
+    runs-on: ubuntu-latest
+  
+    steps: 
+      - name: Print Hello Message
+        run : echo "Hello from GitHub stepanpr"
+    
