@@ -1,4 +1,7 @@
-name: myset
+name: mydeployment
+env:
+  APP_NAME: "template_react"
+  #key: 
 
 #on: [push]
 
@@ -13,5 +16,8 @@ jobs:
   
     steps: 
       - name: Print Hello Message
-        run : echo "Hello from GitHub stepanpr"
+        run : echo "Hello from GitHub stepanpr ${{ env.APP_NAME }}"
+        
+      - name: SHOW_ALL
+        run : ls -la
     
